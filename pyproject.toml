@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentwall"
+version = "0.1.0"
+description = "Open-source security firewall for AI agents. Detect prompt injection, prevent secret leakage, control tool execution, and keep an audit trail — runs locally."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "AgentWall Contributors" }]
+keywords = [
+    "ai-security",
+    "prompt-injection",
+    "agent-firewall",
+    "secret-scanning",
+    "tool-guard",
+    "mcp",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[project.scripts]
+agentwall = "agentwall.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/agentwall/agentwall"
+Documentation = "https://github.com/agentwall/agentwall#readme"
+Repository = "https://github.com/agentwall/agentwall"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentwall"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

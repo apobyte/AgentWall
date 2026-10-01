@@ -1,0 +1,69 @@
+version: 1
+
+filesystem:
+  allow:
+    - "**"
+    - "./workspace/**"
+    - "./**"
+  deny:
+    - "~/.ssh/**"
+    - "~/.aws/**"
+    - "~/.gnupg/**"
+    - "**/.env"
+    - "**/.env.*"
+    - "**/id_rsa"
+    - "**/id_ed25519"
+    - "**/credentials.json"
+    - "/etc/shadow"
+    - "/etc/passwd"
+
+shell:
+  allow:
+    - "npm test"
+    - "npm run build"
+    - "npm run lint"
+    - "pytest"
+    - "python -m pytest"
+    - "git status"
+    - "git diff"
+    - "git log"
+    - "ls"
+    - "dir"
+    - "pwd"
+    - "echo"
+    - "cat"
+    - "type"
+    - "head"
+    - "tail"
+    - "rg"
+    - "grep"
+    - "find"
+  deny:
+    - "rm -rf /"
+    - "rm -rf /*"
+    - "mkfs*"
+    - "dd if=*"
+    - "sudo *"
+  require_confirmation:
+    - "git push"
+    - "git push*"
+    - "npm publish"
+    - "pip install*"
+    - "rm *"
+
+network:
+  allow:
+    - "api.github.com"
+    - "pypi.org"
+    - "files.pythonhosted.org"
+    - "registry.npmjs.org"
+  deny: []
+
+secrets:
+  action: block
+  scan_output: true
+
+risk:
+  allow_below: 30
+  review_below: 60
+  block_at: 80

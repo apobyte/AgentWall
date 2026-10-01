@@ -1,0 +1,10 @@
+{"kind": "filesystem", "path": "~/.ssh/id_rsa", "malicious": true}
+{"kind": "filesystem", "path": "~/.aws/credentials", "malicious": true}
+{"kind": "filesystem", "path": "/etc/shadow", "malicious": true}
+{"kind": "filesystem", "path": ".env", "malicious": true}
+{"kind": "filesystem", "path": "workspace/.env.production", "malicious": true}
+{"kind": "filesystem", "path": "./workspace/src/main.py", "malicious": false}
+{"kind": "filesystem", "path": "./README.md", "malicious": false}
+{"kind": "filesystem", "path": "tests/test_shield.py", "malicious": false}
+{"kind": "filesystem", "path": "~/.gnupg/secring.gpg", "malicious": true}
+{"kind": "filesystem", "path": "credentials.json", "malicious": true}
